@@ -1,0 +1,17 @@
+{
+  "name": "marko-custom-attributes",
+  "version": "1.0.0",
+  "description": "Compile-time transforms for custom attributes in Marko",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "marko": "^3.0.3",
+    "mime": "^1.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Steele-Idem <pnidem@gmail.com>",
+  "license": "MIT"
+}
