@@ -20,5 +20,5 @@ When rendered, the output should be similar to the following:
 git clone https://github.com/marko-js-samples/marko-custom-attributes.git
 cd marko-custom-attributes
 npm install
-node run.js
+node .
 ```
