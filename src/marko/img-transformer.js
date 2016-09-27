@@ -18,7 +18,7 @@ module.exports = function transform(el, context) {
 
     let builder = context.builder;
 
-    el.removeAttribute('base64-src'); // This attribute is handled at parse time. We can just remove it now
+    el.removeAttribute('base64-src'); // This attribute is handled at compile time. We can just remove it now
 
     if (base64SrcExpression.type === 'Literal') {
         /*
@@ -51,7 +51,7 @@ module.exports = function transform(el, context) {
             <img src=__base64Url .../>
         </app-base64>
 
-        The <app-base64> tag will render the body asynchronously have asynchronously reading the image file and
+        The <app-base64> tag will render the body asynchronously after asynchronously reading the image file and
         base64 encoding the image data.
         */
         var base64Tag = context.createNodeForEl('app-base64', {
