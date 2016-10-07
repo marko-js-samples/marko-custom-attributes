@@ -2,20 +2,22 @@
 
 module.exports = function transform(el, context) {
     let repeat = el.getAttribute('repeat');
-    if (!repeat) {
+    if (!repeat || !repeat.argument) {
         return;
     }
 
-    var arg = repeat.argument;
-    if (!arg) {
-        return;
-    }
-
+    // Remove the attribute so that it is not rendered to the HTML output
     el.removeAttribute('repeat');
 
-    var builder = context.builder;
-    var toExpression = builder.parseExpression(arg);
+    // Parse the String argument into a JavaScript expression
+    var toExpression = context.builder.parseExpression(repeat.argument);
 
-    var forRangeNode = builder.forRange('__repeatIndex', builder.literal(1), toExpression);
+    // Create a new ForRange AST node to loop the correct number of times
+    var forRangeNode = context.builder.forRange(
+        '__repeatIndex' /* var name */,
+        context.builder.literal(1) /* start range */,
+        toExpression /* end range (inclusive) */ );
+
+    // Wrap the current element in a new ForRange AST node
     el.wrapWith(forRangeNode);
 };
