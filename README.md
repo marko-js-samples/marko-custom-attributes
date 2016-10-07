@@ -26,7 +26,7 @@ _src/marko.json:_
 }
 ```
 
-_./src/marko/repeat-transformer.js):_
+_./src/marko/repeat-transformer.js:_
 
 ```javascript
 module.exports = function transform(el, context) {
