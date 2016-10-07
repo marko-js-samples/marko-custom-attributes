@@ -9,5 +9,9 @@
     },
     "<img>": {
         "transformer": "./marko/img-transformer.js"
+    },
+    "<*>": {
+        "@repeat": "integer",
+        "transformer": "./marko/repeat-transformer.js"
     }
 }
